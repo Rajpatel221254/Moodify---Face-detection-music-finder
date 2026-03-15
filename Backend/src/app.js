@@ -9,16 +9,15 @@ app.use(cookieParser());
 // allow both production and local frontend origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://moodify-face-detection-music-finder-rajpatel221254s-projects.vercel.app/",
-  "https://moodify-face-detection-music-finder.vercel.app/", // adjust port if your frontend runs elsewhere
-];
+  process.env.FRONTEND_URL, // set this in your production environment (Render/Vercel)
+].filter(Boolean);
 
 app.use(
   cors({
     origin: function (origin, callback) {
       // allow requests with no origin (like mobile apps or curl)
       if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) !== -1) {
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
