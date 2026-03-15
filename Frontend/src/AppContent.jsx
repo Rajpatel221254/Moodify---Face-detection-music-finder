@@ -12,3 +12,5 @@ const AppContent = () => {
 
   return <RouterProvider router={router} />;
 };
+
+export default AppContent;
