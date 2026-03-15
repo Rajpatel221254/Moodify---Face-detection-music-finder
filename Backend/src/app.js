@@ -3,13 +3,9 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
 
-const app = express();
-app.use(express.json());
-app.use(cookieParser());
-// allow both production and local frontend origins
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.FRONTEND_URL, // set this in your production environment (Render/Vercel)
+  "https://moodify-by-mbrc.netlify.app",
 ].filter(Boolean);
 
 app.use(
@@ -26,6 +22,12 @@ app.use(
     credentials: true,
   }),
 );
+
+const app = express();
+app.use(express.json());
+app.use(cookieParser());
+// allow both production and local frontend origins
+
 
 /**
  * Import Routers
