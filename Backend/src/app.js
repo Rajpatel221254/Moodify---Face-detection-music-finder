@@ -4,6 +4,8 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 
+app.set("trust proxy", 1);
+
 const allowedOrigins = [
   "http://localhost:5173",
   "https://moodify-by-mbrc.netlify.app",
@@ -27,7 +29,6 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 // allow both production and local frontend origins
-
 
 /**
  * Import Routers

@@ -43,8 +43,10 @@ async function registerController(req, res) {
 
   res.cookie("token", token, {
     httpOnly: true,
-    secure: true, 
+    secure: true,
     sameSite: "None",
+    path: "/",
+    maxAge: 3 * 24 * 60 * 60 * 1000,
   });
 
   res.status(201).json({
@@ -99,6 +101,8 @@ async function loginController(req, res) {
     httpOnly: true,
     secure: true,
     sameSite: "None",
+    path: "/",
+    maxAge: 3 * 24 * 60 * 60 * 1000,
   });
 
   res.status(200).json({
@@ -122,7 +126,12 @@ async function getMeController(req, res) {
 async function logoutController(req, res) {
   const token = req.cookies.token;
 
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    path: "/",
+  });
 
   await redis.set(token, Date.now().toString());
 
