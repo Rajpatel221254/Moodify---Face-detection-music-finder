@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSong } from "../hooks/useSong";
 import Player from "../components/Player";
 import FaceExpression from "../../expression/components/FaceExpression";
 import SongsList from "../components/SongsList";
 import "./home.scss";
-import { useAuth } from "../../auth/hooks/useAuth";
 
 const Home = () => {
   const { handleGetSong } = useSong();
-  const { handleGetMe } = useAuth();
-
-  useEffect(() => {
-    handleGetMe();
-  }, []);
 
   return (
     <div className="home-container">
