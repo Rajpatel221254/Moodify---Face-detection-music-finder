@@ -8,7 +8,9 @@ app.use(express.json());
 app.use(cookieParser());
 // allow both production and local frontend origins
 const allowedOrigins = [
-  "http://localhost:5173", // adjust port if your frontend runs elsewhere
+  "http://localhost:5173",
+  "https://moodify-face-detection-music-finder-rajpatel221254s-projects.vercel.app/",
+  "https://moodify-face-detection-music-finder.vercel.app/", // adjust port if your frontend runs elsewhere
 ];
 
 app.use(
