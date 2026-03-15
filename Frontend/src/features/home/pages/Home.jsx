@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSong } from "../hooks/useSong";
 import Player from "../components/Player";
 import FaceExpression from "../../expression/components/FaceExpression";

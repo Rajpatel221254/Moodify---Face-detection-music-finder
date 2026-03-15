@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router'
 import { router } from './app.routes'
 
 const AppContent = () => {
-  const { handleGetMe } = useAuth();
+  const { handleGetMe, loading } = useAuth();
 
   useEffect(() => {
     handleGetMe();

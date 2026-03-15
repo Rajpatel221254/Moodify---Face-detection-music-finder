@@ -2,6 +2,7 @@ import React from 'react'
 import { useSong } from '../hooks/useSong'
 import SongCard from './SongCard'
 import './songslist.scss'
+import Loader from '../../shared/components/Loader'
 
 const SongsList = () => {
     const { songs, loading } = useSong()
@@ -9,10 +10,7 @@ const SongsList = () => {
     if (loading) {
         return (
             <div className="songs-list-container">
-                <div className="loading-spinner">
-                    <div className="spinner"></div>
-                    <p>Loading songs...</p>
-                </div>
+                <Loader />
             </div>
         )
     }
