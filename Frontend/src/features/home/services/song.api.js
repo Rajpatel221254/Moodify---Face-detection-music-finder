@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: "https://moodify-cynx.onrender.com",
+  baseURL: process.env.BACKEND_URL || "http://localhost:3000",
   withCredentials: true,
 });
 
