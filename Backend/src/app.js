@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
+const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -23,7 +24,6 @@ app.use(
   }),
 );
 
-const app = express();
 app.use(express.json());
 app.use(cookieParser());
 // allow both production and local frontend origins
