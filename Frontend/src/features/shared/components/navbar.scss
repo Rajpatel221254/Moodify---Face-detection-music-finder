@@ -1,0 +1,154 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(10, 14, 39, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            color: #ff6b6b;
+            filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.4));
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff9aa2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        
+        @media (max-width: 768px) {
+            display: none; // Hidden on mobile, we will show hamburger menu later
+        }
+
+        .user-greeting {
+            color: #d0d0d0;
+            font-weight: 500;
+            font-size: 0.95rem;
+
+            span {
+                color: white;
+                font-weight: 600;
+            }
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+            color: #ff9aa2;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba(255, 107, 107, 0.1);
+                border-color: rgba(255, 107, 107, 0.5);
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+    /* Mobile Menu Toggle */
+    &__toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        color: #f0f0f0;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1001;
+
+        @media (max-width: 768px) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        svg {
+            transition: transform 0.3s ease;
+        }
+    }
+
+    /* Mobile Menu Overlay */
+    &__mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 14, 39, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+
+        &.open {
+            display: flex;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .user-greeting {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            span {
+                color: white;
+                font-weight: 600;
+            }
+        }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(255, 107, 107, 0.3);
+            cursor: pointer;
+        }
+    }
+}
+
+// Add top padding globally to avoid content hiding under fixed navbar
+body {
+    padding-top: 70px;
+}

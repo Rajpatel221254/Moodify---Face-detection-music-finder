@@ -91,14 +91,13 @@
         border-radius: 6px;
         cursor: pointer;
         transition: height 0.2s ease;
-        overflow: hidden;
 
         &:hover {
             height: 8px;
 
             .player__progress-thumb {
                 opacity: 1;
-                transform: translateX(-50%) scale(1);
+                transform: translateX(-50%) translateY(-50%) scale(1);
             }
         }
     }
