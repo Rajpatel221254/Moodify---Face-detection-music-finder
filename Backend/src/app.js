@@ -9,7 +9,7 @@ app.set("trust proxy", 1);
 const allowedOrigins = [
   "http://localhost:5173",
   "https://moodify-by-mbrc.netlify.app",
-  "https://409cf3.quicklive.tech/",
+  "https://88bd2a.quicklive.tech/",
 ].filter(Boolean);
 
 app.use(
